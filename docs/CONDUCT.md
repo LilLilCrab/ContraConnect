@@ -1,8 +1,10 @@
+# CONDUCT.md
+
 ## Team Code of Conduct
 
 ### Our Pledge
 
-In the interest of fostering an open and welcoming environment, we as members of the **[305Soft]** team pledge to make participation in our project and our community a harassment-free and respectful experience for everyone, regardless of age, body size, disability, ethnicity, gender identity and expression, level of experience, nationality, personal appearance, race, religion, or sexual identity and orientation.
+In the interest of fostering an open and welcoming environment, we as members of the **305Soft** team pledge to make participation in our project and our community a harassment-free and respectful experience for everyone, regardless of age, body size, disability, ethnicity, gender identity and expression, level of experience, nationality, personal appearance, race, religion, or sexual identity and orientation.
 
 ---
 
@@ -28,7 +30,7 @@ Examples of unacceptable behavior by participants include:
 
 ### Team-Specific Policies
 
-The following policies are specific to the **[305Soft]** team and are mandatory for all members.
+The following policies are specific to the **305Soft** team and are mandatory for all members.
 
 #### Technology Use During Meetings
 
@@ -46,20 +48,18 @@ Decisions will primarily be made by **consensus** (general agreement). If a cons
 
 #### Assignments
 
-1.  **Assignment Allocation:** Assignments will be made based on a combination of **member strengths, expressed interests, and equitable distribution** of workload. We will use a team planning tool (e.g., Trello/GitHub Projects) to track and assign tasks.
+1.  **Assignment Allocation:** Assignments will be made based on a combination of **member strengths, expressed interests, and equitable distribution** of workload. We will use a team planning tool (GitHub Projects) to track and assign tasks.
 2.  **Dealing with Incomplete/Poorly Completed Assignments:** If a member fails to complete (or poorly completes) an assignment:
     * **First Instance:** A private, direct conversation will be held between the member and the team lead/designated mentor to understand the issue and identify support needs. A plan for completion will be created.
     * **Repeated Instances:** The team will hold a private discussion to determine if re-allocation of work or additional accountability measures are needed, up to and including formal disciplinary action if the issue persists and impacts project delivery.
 
 #### Participation & Communication
 
-1.  **Information Sharing:** We will primarily communicate via **[Specify Medium, e.g., Slack/Discord]** for quick updates and use **[Specify Medium, e.g., GitHub/Google Drive]** for sharing and documenting core project files and documentation.
-2.  **Ensuring Full Participation:** The team will use **"round-robin" or "check-in" structures** at key points in a discussion to ensure every voice is heard. Team members are encouraged to **proactively invite quiet members** to share their thoughts.
-3.  **Honoring Strengths and Interests:** We will conduct an initial **skills and interest inventory** and revisit it regularly. Assignments and roles will be matched to these strengths where feasible to maximize individual contribution and job satisfaction.
+**Information Sharing:** We will primarily communicate via **Discord** for quick updates and use **GitHub/Google Drive** for sharing and documenting core project files and documentation.
 
 #### Meeting Times and Locations/Mediums
 
-Initial meeting times and locations/mediums (e.g., Room 205 / Zoom link) were decided to suit all current members. Any proposed change to the standing time or location must be agreed upon by **unanimous consent** of the team to ensure no member is involuntarily excluded.
+Initial meeting times and locations/mediums were decided to suit all current members. Any proposed change to the standing time or location must be agreed upon by **unanimous consent** of the team to ensure no member is involuntarily excluded.
 
 #### Agenda and Minutes / Notes
 
@@ -86,7 +86,7 @@ Initial meeting times and locations/mediums (e.g., Room 205 / Zoom link) were de
 
 The team will enforce its own rules through a tiered approach:
 1.  **Peer-to-Peer:** The first level is gentle, private reminders between team members.
-2.  **Team Check-in:** For recurring issues, the team will dedicate 5-10 minutes at the start or end of a meeting to a respectful, non-judgmental discussion about how the team can collectively better follow the Code of Conduct.
+2.  **Team Check-in:** For recurring issues, the team may possibly dedicate 5-10 minutes at the start or end of a meeting to a respectful, non-judgmental discussion about how the team can collectively better follow the Code of Conduct.
 3.  **Team Lead/Mentor Intervention:** For persistent issues or severe breaches, the issue will be escalated to the team lead or faculty mentor.
 
 #### Giving and Receiving Feedback
@@ -102,11 +102,14 @@ If you are subject to or witness unacceptable behavior, or have any other concer
 
 **Contact Person for Code of Conduct Issues:**
 
-* **Name:** Lukaz Seng, 
-* **Email:** [Insert Team Lead or Faculty Mentor Email Address]
+* **Name:** 
+* **Name:** 
+* **Name:** 
+* **Name:** 
 
 All complaints will be reviewed and investigated and will result in a response that is deemed necessary and appropriate to the circumstances. The team is obligated to maintain confidentiality with regard to the reporter of an incident.
 
 ### Attribution
 
 This Code of Conduct is adapted from the Contributor Covenant, version 1.4, available at https://www.contributor-covenant.org/version/1/4/code-of-conduct.html
+
