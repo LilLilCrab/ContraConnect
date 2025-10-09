@@ -102,7 +102,7 @@ If you are subject to or witness unacceptable behavior, or have any other concer
 
 **Contact Person for Code of Conduct Issues:**
 
-* **Name:** [Insert Team Lead or Faculty Mentor Name]
+* **Name:** Lukaz Seng, 
 * **Email:** [Insert Team Lead or Faculty Mentor Email Address]
 
 All complaints will be reviewed and investigated and will result in a response that is deemed necessary and appropriate to the circumstances. The team is obligated to maintain confidentiality with regard to the reporter of an incident.
