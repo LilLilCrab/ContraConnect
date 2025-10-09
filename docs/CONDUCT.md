@@ -104,8 +104,8 @@ If you are subject to or witness unacceptable behavior, or have any other concer
 
 * **Name:** Marlon Mussington
 * **Name:** Lukaz Seng
-* **Name:** 
-* **Name:** 
+* **Name:** Benjii Costa
+* **Name:** Kenneth Avendano
 
 All complaints will be reviewed and investigated and will result in a response that is deemed necessary and appropriate to the circumstances. The team is obligated to maintain confidentiality with regard to the reporter of an incident.
 
