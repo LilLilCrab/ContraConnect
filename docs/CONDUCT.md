@@ -103,7 +103,7 @@ If you are subject to or witness unacceptable behavior, or have any other concer
 **Contact Person for Code of Conduct Issues:**
 
 * **Name:** Marlon Mussington
-* **Name:** 
+* **Name:** Lukaz Seng
 * **Name:** 
 * **Name:** 
 
