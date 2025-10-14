@@ -1,1 +1,1 @@
-# ContraCal368
+# ContraConnect (formerly ContraCal368)
