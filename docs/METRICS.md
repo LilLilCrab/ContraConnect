@@ -3,7 +3,7 @@
 
 ## Lukaz Seng
 ## NPS (Net Promoter Score)
-### How to collect: Log an evetn using Firebase Analytics to have a prompt, ask users feedback after three logins that is prompt using a variable "nps_submitted"
+### How to collect: Log an event using Firebase Analytics to have a prompt, ask users feedback after three logins using a variable "nps_submitted"
 ### Each event should include: user_id, role (homeowner or contractor), nps_score (0 to 10) and timestamp of submission time
 ### The percentage of Promoters (9–10)
 ### The percentage of Passives (7–8)
