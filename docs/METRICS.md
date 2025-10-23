@@ -1,7 +1,17 @@
 # ContraConnect
 ## [Heart Framework](https://docs.google.com/presentation/d/1h30onyUbGMUGm7jJqxZ7wAYJ0lNIhyDAHlJ7sbeP7Go/edit?usp=sharing)
+
 ## Lukaz Seng
-### Metric #1 (Average Number of Contractors posts per week)
+## NPS (Net Promoter Score)
+### How to collect: Log an evetn using Firebase Analytics to have a prompt, ask users feedback after three logins that is prompt using a variable "nps_submitted"
+### Each event should include: user_id, role (homeowner or contractor), nps_score (0 to 10) and timestamp of submission time
+### The percentage of Promoters (9–10)
+### The percentage of Passives (7–8)
+### The percentage of Detractors (0–6)
+### Calculate the NPS score:  NPS = (% Promoters - % Detractors)
+
+
+##  Other Metric(Average Number of Contractors posts per week)
 ### How to collect: Log an event using Firebase Analytics when the contractor creates a new post using a variable "contractor_posted_work"
 ### Each event has a unique user_id and the time stamp
 ### Firebase Analytics will store and organize it by each week by user_id in order to count for the number of posts were made by the contractors
