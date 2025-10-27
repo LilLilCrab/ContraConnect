@@ -16,3 +16,26 @@
 ### Each event has a unique user_id and the time stamp
 ### Firebase Analytics will store and organize it by each week by user_id in order to count for the number of posts were made by the contractors
 ### Then compute the average of work posted by the contractor
+
+---
+
+## Kenneth Avendano
+
+## Adoption Metric
+
+### Description
+**Metric Name:** Adoption  
+**HEART Category:** Adoption (New User Growth)  
+**Goal:** Measure how many new users start using the app within a given time frame.  
+**Signal:** Number of successful account creations and first actions after sign-up.  
+**Metric:** Count of unique users who create an account (`sign_up` event in Firebase Authentication) and complete their first in-app action (e.g., browsing contractors or posting a job request) within 24 hours of sign-up.
+
+
+### How We Collect This Data
+
+- **Collection Method:** Automatically logged via **Firebase Authentication** and **Firebase Analytics**.  
+- **Firebase Event:**  
+  - `sign_up` — automatically tracked by Firebase when a new user account is created.  
+  - `first_action` (custom event) — triggered when a user performs their first key action after onboarding (e.g., `contractor_list_view` or `request_submit`).  
+- **Data Source:** Firebase Analytics → User Properties and Event Logs.  
+- **Calculation Formula:**  
