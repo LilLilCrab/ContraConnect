@@ -133,3 +133,101 @@ Firebase Config parameter:
 Firebase Config parameter:  
 `"onboarding_flow": "details_first"`
 
+# A/B Test Plan  
+**Prepared by:** Benjii Costa  
+
+---
+
+## A/B Test Name  
+**Button Navigation vs Tab Bar Navigation for Sign-Up/Sign-In Flow**
+
+---
+
+## User Story Number  
+**US1: Account Creation and Authentication Flow**
+
+---
+
+## Metrics (HEART Framework)  
+- **Happiness:** User satisfaction during onboarding (via post-onboarding feedback or time-to-complete metric)  
+- **Engagement:** Number of users interacting with navigation elements between sign-up and sign-in  
+- **Adoption:** Conversion rate of visitors who create an account after viewing the login screen  
+- **Retention:** Returning users who successfully log in after their first session  
+- **Task Success:** Reduced time to complete account creation and fewer drop-offs between authentication steps  
+
+---
+
+## Hypothesis  
+Users provided with a **tab bar navigation** between sign-up and sign-in screens will experience **faster navigation**, **less confusion**, and a **higher sign-up completion rate** compared to those who use **button-based navigation**.  
+
+---
+
+## What Problem Are We Trying to Solve?  
+Currently, the navigation between **sign-in** and **register** screens may cause cognitive friction. Button-based navigation forces an extra action (tapping a button and waiting for a new screen to load), which could increase drop-offs during onboarding.  
+
+### Impact  
+A smoother, more continuous authentication flow can:  
+- Decrease friction and reduce onboarding time  
+- Improve user satisfaction and confidence in the app  
+- Increase the number of users completing the sign-up process  
+
+After analyzing the onboarding funnel, the highest drop-off rate occurs between the “Start” and “Create Account” screens. This suggests that users are hesitating when prompted to switch views.  
+
+---
+
+## Experiment  
+This experiment will be run using **Firebase A/B Testing** integrated with **Remote Config**.  
+
+### Setup  
+- **Population:** 100% of new users visiting the app’s authentication flow  
+- **Groups:**  
+  - **Variant A (Control):** Standard button navigation between “Sign In” and “Register” screens  
+  - **Variant B (Experiment):** Tab bar navigation allowing users to toggle seamlessly between both screens  
+- **Allocation:** 50/50 split  
+- **Duration:** 2 weeks minimum or until statistical significance (p < 0.05) is achieved  
+
+### Tracking (Firebase Analytics)  
+- `auth_button_click` → Logs button navigation events  
+- `auth_tab_switch` → Logs tab switch events  
+- `signup_complete` → Logs successful registration  
+- `login_complete` → Logs successful sign-in  
+- `time_to_auth_complete` → Time between entering the flow and completing authentication  
+
+These events will feed into HEART-aligned dashboards to measure satisfaction, adoption, and efficiency.
+
+---
+
+## Variations  
+
+### Variation A (Control): Button Navigation  
+- Users see two buttons:  
+  - “Sign In”  
+  - “Register an Account”  
+- Each button opens a separate screen via navigation routing.  
+- Example Flow:  
+
+### Variation B (Experiment): Tab Bar Navigation  
+- Users can toggle between **Sign In** and **Register** tabs on a single screen.  
+- Seamless switching avoids full-screen reloads, increasing flow continuity.  
+- Example Flow:  
+
+### Design Considerations  
+- Both versions share identical branding, copy, and field layout to isolate the variable of **navigation method**.  
+- Success metrics and error handling remain identical.
+
+---
+
+## Expected Outcome  
+It is expected that **Variant B (Tab Bar)** will outperform the button-based flow in terms of:  
+- **Task Success Rate** (+10–15%)  
+- **Onboarding Completion Rate** (+8–12%)  
+- **User Satisfaction Scores** (+0.5–1.0 increase in survey rating)
+
+---
+
+## Next Steps  
+- Deploy Firebase Remote Config parameters for navigation mode  
+- Define Analytics events and debug in staging  
+- Launch A/B test to production users (new sign-ups only)  
+- Review metrics after 2 weeks or after statistical confidence is reached  
+
