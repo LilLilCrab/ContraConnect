@@ -64,3 +64,72 @@
 
 
 This test is designed to see if a gentle push of urgency and a boost of confidence at the last minute can overcome user indecision. Let me know if you'd like to brainstorm ways to measure the "Happiness" metric in a simple post-booking flow!
+
+---
+
+## Kenneth Avendano
+
+## A/B Test Name: Onboarding Order Flow (Role-First vs Details-First)
+
+### User Story Number:
+US3 – Onboarding and Profile Creation Flow
+
+
+### Metrics:
+- **Adoption:** Percentage of users who complete onboarding and reach the home screen (`onboarding_complete` event / total `sign_up` events).
+- **Task Success:** Average onboarding completion time (from first onboarding screen to `onboarding_complete` event).
+- **Retention:** Percentage of users returning to the app within 7 days after onboarding completion (`app_open` events tied to `user_id`).
+- **CTR:** Button click-through rate for “Continue” and “Submit” events across onboarding screens (`onboarding_step_next`).
+
+
+### Hypothesis:
+Users who select their **role (Homeowner or Contractor)** first will experience a more personalized and intuitive onboarding process, leading to **higher completion rates and faster onboarding times**.  
+We hypothesize that beginning with “Who you are” makes the next questions (like name, birthday, and business details) feel more relevant — improving overall **Adoption** and **Task Success**.
+
+
+### Problem Statement:
+The current onboarding process starts with **personal information first**, which may feel impersonal and confusing since users don’t yet know whether they’re signing up as a contractor or homeowner.  
+In early user testing, **drop-offs occurred between the personal info and role selection screens**, suggesting a lack of clarity about why certain data was needed.  
+Improving this flow could directly increase **adoption** (users completing onboarding) and **reduce time-to-home** — both key early conversion metrics for ContraConnect.
+
+
+### Experiment Setup:
+We will use **Firebase Remote Config** to split users randomly into two equal groups (50/50):  
+- **Group A (Role-First Flow):** Users first select “Homeowner” or “Contractor,” then enter name, birthday, and (if contractor) business info.  
+- **Group B (Details-First Flow - Control):** Users first enter personal info, then select their role.  
+
+Firebase Analytics will track:  
+- `sign_up` (automatic via Firebase Auth)  
+- `onboarding_started`  
+- `onboarding_step_view { onboarding_flow, step_name }`  
+- `onboarding_complete { onboarding_flow, role, timestamp }`  
+- `app_open` (for retention tracking)
+
+We will monitor:
+- Completion rate (`onboarding_complete / sign_up`)  
+- Average time to completion (`onboarding_complete.timestamp - onboarding_started.timestamp`)  
+- 7-day retention (users with ≥1 `app_open` within 7 days of onboarding_complete)
+
+Only **new users** will be included in this test, and each group will have an equal distribution of devices, locations, and roles to ensure balance.
+
+
+### Variations:
+
+#### **Group A: Role-First Flow (Test Group)**
+- **Screen 1:** “Select your role” (Homeowner / Contractor)
+- **Screen 2:** Input First Name, Last Name, Birthday
+- **Screen 3 (Contractors only):** Input Business Name + Contract Type
+- **Screen 4:** Confirmation + Continue to Home
+
+Firebase Config parameter:  
+`"onboarding_flow": "role_first"`
+
+#### **Group B: Details-First Flow (Control Group)**
+- **Screen 1:** Input First Name, Last Name, Birthday
+- **Screen 2:** “Select your role” (Homeowner / Contractor)
+- **Screen 3 (Contractors only):** Input Business Name + Contract Type
+- **Screen 4:** Confirmation + Continue to Home
+
+Firebase Config parameter:  
+`"onboarding_flow": "details_first"`
+
