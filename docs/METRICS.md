@@ -1,5 +1,5 @@
 # ContraConnect
-## [Heart Framework](https://docs.google.com/presentation/d/1h30onyUbGMUGm7jJqxZ7wAYJ0lNIhyDAHlJ7sbeP7Go/edit?usp=sharing)
+## [Heart Framework](https://docs.google.com/presentation/d/1MZ0A1XwPSUa_DnDkMZtGFHL18yOAnsjGveQf7S7PKJA/edit?usp=sharing)
 
 ## Lukaz Seng
 ## NPS (Net Promoter Score)
