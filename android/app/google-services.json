@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "4948694985",
+    "project_id": "contraconnect",
+    "storage_bucket": "contraconnect.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:4948694985:android:f7fb3f9e395d286ef2fa18",
+        "android_client_info": {
+          "package_name": "com.mycompany.contracal368"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBF_SjAzjH3uk3F1rbIsuXvZto5W3TExTs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
