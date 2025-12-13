@@ -72,6 +72,8 @@ class _CustomnavbarWidgetState extends State<CustomnavbarWidget> {
                   _model.jNColor = Color(0xFFDCD7C9);
                   _model.rNColor = Color(0xB3A27B5C);
                   _model.pNColor = Color(0xB3A27B5C);
+                  _model.updatePage(() {});
+                  logFirebaseEvent('JobsNav_rebuild_component');
                   safeSetState(() {});
                 },
                 child: Column(
@@ -103,6 +105,8 @@ class _CustomnavbarWidgetState extends State<CustomnavbarWidget> {
                   _model.rNColor = Color(0xFFDCD7C9);
                   _model.pNColor = Color(0xB3A27B5C);
                   safeSetState(() {});
+                  logFirebaseEvent('RequestsNav_rebuild_component');
+                  safeSetState(() {});
                 },
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
@@ -132,6 +136,8 @@ class _CustomnavbarWidgetState extends State<CustomnavbarWidget> {
                   _model.jNColor = Color(0xB3A27B5C);
                   _model.rNColor = Color(0xB3A27B5C);
                   _model.pNColor = Color(0xFFDCD7C9);
+                  safeSetState(() {});
+                  logFirebaseEvent('ProfileNav_rebuild_component');
                   safeSetState(() {});
                 },
                 child: Column(

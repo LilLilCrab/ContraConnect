@@ -145,7 +145,7 @@ class _RequestsWidgetState extends State<RequestsWidget> {
                                         'list_request_navigate_to');
 
                                     context.pushNamed(
-                                      HomeownerReqDetailsWidget.routeName,
+                                      HomeownerReqDetailsV2Widget.routeName,
                                       queryParameters: {
                                         'request': serializeParam(
                                           listViewRequestsRecord,

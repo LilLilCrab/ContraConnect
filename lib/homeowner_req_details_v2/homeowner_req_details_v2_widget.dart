@@ -1,43 +1,41 @@
-import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
-import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'homeowner_job_details_model.dart';
-export 'homeowner_job_details_model.dart';
+import 'homeowner_req_details_v2_model.dart';
+export 'homeowner_req_details_v2_model.dart';
 
-class HomeownerJobDetailsWidget extends StatefulWidget {
-  const HomeownerJobDetailsWidget({
+class HomeownerReqDetailsV2Widget extends StatefulWidget {
+  const HomeownerReqDetailsV2Widget({
     super.key,
-    required this.job,
+    required this.request,
   });
 
-  final JobsRecord? job;
+  final RequestsRecord? request;
 
-  static String routeName = 'HomeownerJobDetails';
-  static String routePath = '/homeownerJobDetails';
+  static String routeName = 'HomeownerReqDetailsV2';
+  static String routePath = '/homeownerReqDetailsV2';
 
   @override
-  State<HomeownerJobDetailsWidget> createState() =>
-      _HomeownerJobDetailsWidgetState();
+  State<HomeownerReqDetailsV2Widget> createState() =>
+      _HomeownerReqDetailsV2WidgetState();
 }
 
-class _HomeownerJobDetailsWidgetState extends State<HomeownerJobDetailsWidget> {
-  late HomeownerJobDetailsModel _model;
+class _HomeownerReqDetailsV2WidgetState
+    extends State<HomeownerReqDetailsV2Widget> {
+  late HomeownerReqDetailsV2Model _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => HomeownerJobDetailsModel());
+    _model = createModel(context, () => HomeownerReqDetailsV2Model());
 
     logFirebaseEvent('screen_view',
-        parameters: {'screen_name': 'HomeownerJobDetails'});
+        parameters: {'screen_name': 'HomeownerReqDetailsV2'});
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
@@ -94,7 +92,7 @@ class _HomeownerJobDetailsWidgetState extends State<HomeownerJobDetailsWidget> {
                               ),
                               onPressed: () async {
                                 logFirebaseEvent(
-                                    'HOMEOWNER_JOB_DETAILS_arrow_back_ICN_ON_');
+                                    'HOMEOWNER_REQ_DETAILS_V2_arrow_back_ICN_');
                                 logFirebaseEvent('IconButton_navigate_back');
                                 context.safePop();
                               },
@@ -106,7 +104,7 @@ class _HomeownerJobDetailsWidgetState extends State<HomeownerJobDetailsWidget> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              'Job Details',
+                              'Request Details',
                               style: FlutterFlowTheme.of(context)
                                   .headlineLarge
                                   .override(
@@ -157,7 +155,7 @@ class _HomeownerJobDetailsWidgetState extends State<HomeownerJobDetailsWidget> {
                           ),
                           child: Text(
                             valueOrDefault<String>(
-                              widget.job?.title,
+                              widget.request?.reqTitle,
                               'title',
                             ),
                             style: FlutterFlowTheme.of(context)
@@ -209,8 +207,8 @@ class _HomeownerJobDetailsWidgetState extends State<HomeownerJobDetailsWidget> {
                           ),
                           child: Text(
                             valueOrDefault<String>(
-                              widget.job?.startingPrice,
-                              'not-set',
+                              widget.request?.reqPrice,
+                              'default',
                             ),
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
@@ -261,8 +259,8 @@ class _HomeownerJobDetailsWidgetState extends State<HomeownerJobDetailsWidget> {
                           ),
                           child: Text(
                             valueOrDefault<String>(
-                              widget.job?.typeOfWork,
-                              'not-set',
+                              widget.request?.reqCategory,
+                              'default',
                             ),
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
@@ -313,8 +311,8 @@ class _HomeownerJobDetailsWidgetState extends State<HomeownerJobDetailsWidget> {
                           ),
                           child: Text(
                             valueOrDefault<String>(
-                              widget.job?.details,
-                              'details',
+                              widget.request?.reqDesc,
+                              'default',
                             ),
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
@@ -337,67 +335,57 @@ class _HomeownerJobDetailsWidgetState extends State<HomeownerJobDetailsWidget> {
                                 ),
                           ),
                         ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 12.0, 0.0, 0.0),
-                          child: FFButtonWidget(
-                            onPressed: () async {
-                              logFirebaseEvent(
-                                  'HOMEOWNER_JOB_DETAILS_REQUEST_WORK_BTN_O');
-                              logFirebaseEvent('Button_backend_call');
-
-                              await RequestsRecord.collection
-                                  .doc()
-                                  .set(createRequestsRecordData(
-                                    homeownerRef: currentUserUid,
-                                    contractorRef: widget.job?.user,
-                                    jobRef: widget.job?.reference,
-                                    homeownerEmail: currentUserEmail,
-                                    accepted: false,
-                                    reqTitle: widget.job?.title,
-                                    reqDesc: widget.job?.details,
-                                    reqPrice: widget.job?.startingPrice,
-                                    reqCategory: widget.job?.typeOfWork,
-                                  ));
-                              logFirebaseEvent('Button_navigate_to');
-
-                              context.pushNamed(RequestsWidget.routeName);
-                            },
-                            text: 'Request Work',
-                            options: FFButtonOptions(
-                              width: double.infinity,
-                              height: 70.0,
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  16.0, 0.0, 16.0, 0.0),
-                              iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
-                              color: Color(0xFFA27B5C),
-                              textStyle: FlutterFlowTheme.of(context)
-                                  .labelMedium
+                        Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Text(
+                              'Status:',
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
                                   .override(
                                     font: GoogleFonts.inter(
-                                      fontWeight: FontWeight.w500,
+                                      fontWeight: FontWeight.w600,
                                       fontStyle: FlutterFlowTheme.of(context)
-                                          .labelMedium
+                                          .bodyMedium
                                           .fontStyle,
                                     ),
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryText,
-                                    fontSize: 20.0,
+                                    fontSize: 25.0,
                                     letterSpacing: 0.0,
-                                    fontWeight: FontWeight.w500,
+                                    fontWeight: FontWeight.w600,
                                     fontStyle: FlutterFlowTheme.of(context)
-                                        .labelMedium
+                                        .bodyMedium
                                         .fontStyle,
                                   ),
-                              elevation: 0.0,
-                              borderSide: BorderSide(
-                                color: FlutterFlowTheme.of(context).primaryText,
-                                width: 2.0,
-                              ),
-                              borderRadius: BorderRadius.circular(24.0),
                             ),
-                          ),
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  45.0, 0.0, 0.0, 0.0),
+                              child: Text(
+                                () {
+                                  if (widget.request!.accepted) {
+                                    return 'Accepted';
+                                  } else if (widget.request!.declined) {
+                                    return 'Declined';
+                                  } else {
+                                    return 'Awaiting Decision...';
+                                  }
+                                }(),
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      font: GoogleFonts.inter(
+                                        fontWeight: FontWeight.w500,
+                                        fontStyle: FontStyle.italic,
+                                      ),
+                                      fontSize: 18.0,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.w500,
+                                      fontStyle: FontStyle.italic,
+                                    ),
+                                overflow: TextOverflow.clip,
+                              ),
+                            ),
+                          ],
                         ),
                       ].divide(SizedBox(height: 12.0)),
                     ),

@@ -63,6 +63,7 @@ class _SigninWidgetState extends State<SigninWidget> {
             padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
             child: Column(
               mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Column(
@@ -382,6 +383,18 @@ class _SigninWidgetState extends State<SigninWidget> {
                   key: ValueKey('Sign-InButton_iyt3'),
                   onPressed: () async {
                     logFirebaseEvent('SIGNIN_PAGE_Sign-InButton_ON_TAP');
+                    logFirebaseEvent('Sign-InButton_auth');
+                    GoRouter.of(context).prepareAuthEvent();
+
+                    final user = await authManager.signInWithEmail(
+                      context,
+                      _model.signUpEmailTextController.text,
+                      _model.signUpPasswordTextController.text,
+                    );
+                    if (user == null) {
+                      return;
+                    }
+
                     logFirebaseEvent('Sign-InButton_backend_call');
 
                     await currentUserReference!.update({
@@ -397,31 +410,18 @@ class _SigninWidgetState extends State<SigninWidget> {
 
                       context.pushNamedAuth(
                           SurveyNPSWidget.routeName, context.mounted);
+                    }
+                    if (valueOrDefault<bool>(
+                        currentUserDocument?.isHomeowner, false)) {
+                      logFirebaseEvent('Sign-InButton_navigate_to');
+
+                      context.pushNamedAuth(
+                          HomeownerJobsWidget.routeName, context.mounted);
                     } else {
-                      logFirebaseEvent('Sign-InButton_auth');
-                      GoRouter.of(context).prepareAuthEvent();
+                      logFirebaseEvent('Sign-InButton_navigate_to');
 
-                      final user = await authManager.signInWithEmail(
-                        context,
-                        _model.signUpEmailTextController.text,
-                        _model.signUpPasswordTextController.text,
-                      );
-                      if (user == null) {
-                        return;
-                      }
-
-                      if (valueOrDefault<bool>(
-                          currentUserDocument?.isHomeowner, false)) {
-                        logFirebaseEvent('Sign-InButton_navigate_to');
-
-                        context.pushNamedAuth(
-                            HomeownerJobsWidget.routeName, context.mounted);
-                      } else {
-                        logFirebaseEvent('Sign-InButton_navigate_to');
-
-                        context.pushNamedAuth(
-                            JobsWidget.routeName, context.mounted);
-                      }
+                      context.pushNamedAuth(
+                          JobsWidget.routeName, context.mounted);
                     }
                   },
                   text: 'Sign In',

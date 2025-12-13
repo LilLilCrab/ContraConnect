@@ -104,11 +104,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
           builder: (context, params) => SurveyNPSWidget(),
         ),
         FFRoute(
-          name: SigninWidget.routeName,
-          path: SigninWidget.routePath,
-          builder: (context, params) => SigninWidget(),
-        ),
-        FFRoute(
           name: OnboardingContractorWidget.routeName,
           path: OnboardingContractorWidget.routePath,
           builder: (context, params) => OnboardingContractorWidget(),
@@ -124,11 +119,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
           builder: (context, params) => TabBarSigninWidget(),
         ),
         FFRoute(
-          name: ProfileConfigWidget.routeName,
-          path: ProfileConfigWidget.routePath,
-          builder: (context, params) => ProfileConfigWidget(),
-        ),
-        FFRoute(
           name: JobsWidget.routeName,
           path: JobsWidget.routePath,
           builder: (context, params) => JobsWidget(),
@@ -140,24 +130,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
             'job': getDoc(['jobs'], JobsRecord.fromSnapshot),
           },
           builder: (context, params) => JobDetailsWidget(
-            job: params.getParam(
-              'job',
-              ParamType.Document,
-            ),
-          ),
-        ),
-        FFRoute(
-          name: HomeownerJobsWidget.routeName,
-          path: HomeownerJobsWidget.routePath,
-          builder: (context, params) => HomeownerJobsWidget(),
-        ),
-        FFRoute(
-          name: HomeownerJobDetailsWidget.routeName,
-          path: HomeownerJobDetailsWidget.routePath,
-          asyncParams: {
-            'job': getDoc(['jobs'], JobsRecord.fromSnapshot),
-          },
-          builder: (context, params) => HomeownerJobDetailsWidget(
             job: params.getParam(
               'job',
               ParamType.Document,
@@ -194,6 +166,47 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
             'request': getDoc(['requests'], RequestsRecord.fromSnapshot),
           },
           builder: (context, params) => ContractorReqDetailsWidget(
+            request: params.getParam(
+              'request',
+              ParamType.Document,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: SigninWidget.routeName,
+          path: SigninWidget.routePath,
+          builder: (context, params) => SigninWidget(),
+        ),
+        FFRoute(
+          name: ProfileConfigWidget.routeName,
+          path: ProfileConfigWidget.routePath,
+          builder: (context, params) => ProfileConfigWidget(),
+        ),
+        FFRoute(
+          name: HomeownerJobsWidget.routeName,
+          path: HomeownerJobsWidget.routePath,
+          builder: (context, params) => HomeownerJobsWidget(),
+        ),
+        FFRoute(
+          name: HomeownerJobDetailsWidget.routeName,
+          path: HomeownerJobDetailsWidget.routePath,
+          asyncParams: {
+            'job': getDoc(['jobs'], JobsRecord.fromSnapshot),
+          },
+          builder: (context, params) => HomeownerJobDetailsWidget(
+            job: params.getParam(
+              'job',
+              ParamType.Document,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: HomeownerReqDetailsV2Widget.routeName,
+          path: HomeownerReqDetailsV2Widget.routePath,
+          asyncParams: {
+            'request': getDoc(['requests'], RequestsRecord.fromSnapshot),
+          },
+          builder: (context, params) => HomeownerReqDetailsV2Widget(
             request: params.getParam(
               'request',
               ParamType.Document,

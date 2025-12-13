@@ -1,9 +1,11 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
+import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/form_field_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'new_job_model.dart';
@@ -32,6 +34,9 @@ class _NewJobWidgetState extends State<NewJobWidget> {
 
     _model.titleInputTextController ??= TextEditingController();
     _model.titleInputFocusNode ??= FocusNode();
+
+    _model.priceInputTextController ??= TextEditingController();
+    _model.priceInputFocusNode ??= FocusNode();
 
     _model.detailsInputTextController ??= TextEditingController();
     _model.detailsInputFocusNode ??= FocusNode();
@@ -202,6 +207,152 @@ class _NewJobWidgetState extends State<NewJobWidget> {
             Container(
               width: double.infinity,
               child: TextFormField(
+                controller: _model.priceInputTextController,
+                focusNode: _model.priceInputFocusNode,
+                autofocus: false,
+                obscureText: false,
+                decoration: InputDecoration(
+                  isDense: true,
+                  labelText: 'Enter your starting price...',
+                  labelStyle: FlutterFlowTheme.of(context).labelMedium.override(
+                        font: GoogleFonts.inter(
+                          fontWeight: FlutterFlowTheme.of(context)
+                              .labelMedium
+                              .fontWeight,
+                          fontStyle: FlutterFlowTheme.of(context)
+                              .labelMedium
+                              .fontStyle,
+                        ),
+                        letterSpacing: 0.0,
+                        fontWeight:
+                            FlutterFlowTheme.of(context).labelMedium.fontWeight,
+                        fontStyle:
+                            FlutterFlowTheme.of(context).labelMedium.fontStyle,
+                      ),
+                  hintText: null,
+                  hintStyle: FlutterFlowTheme.of(context).labelLarge.override(
+                        font: GoogleFonts.inter(
+                          fontWeight: FlutterFlowTheme.of(context)
+                              .labelLarge
+                              .fontWeight,
+                          fontStyle:
+                              FlutterFlowTheme.of(context).labelLarge.fontStyle,
+                        ),
+                        letterSpacing: 0.0,
+                        fontWeight:
+                            FlutterFlowTheme.of(context).labelLarge.fontWeight,
+                        fontStyle:
+                            FlutterFlowTheme.of(context).labelLarge.fontStyle,
+                      ),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: FlutterFlowTheme.of(context).primaryText,
+                      width: 1.0,
+                    ),
+                    borderRadius: BorderRadius.circular(24.0),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Color(0x00000000),
+                      width: 1.0,
+                    ),
+                    borderRadius: BorderRadius.circular(24.0),
+                  ),
+                  errorBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: FlutterFlowTheme.of(context).error,
+                      width: 1.0,
+                    ),
+                    borderRadius: BorderRadius.circular(24.0),
+                  ),
+                  focusedErrorBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: FlutterFlowTheme.of(context).error,
+                      width: 1.0,
+                    ),
+                    borderRadius: BorderRadius.circular(24.0),
+                  ),
+                  filled: true,
+                  fillColor: FlutterFlowTheme.of(context).secondaryBackground,
+                  contentPadding:
+                      EdgeInsetsDirectional.fromSTEB(24.0, 26.0, 24.0, 26.0),
+                  prefixIcon: Icon(
+                    Icons.attach_money,
+                  ),
+                ),
+                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                      font: GoogleFonts.inter(
+                        fontWeight:
+                            FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                        fontStyle:
+                            FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                      ),
+                      fontSize: 18.0,
+                      letterSpacing: 0.0,
+                      fontWeight:
+                          FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                      fontStyle:
+                          FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                    ),
+                cursorColor: FlutterFlowTheme.of(context).primaryText,
+                enableInteractiveSelection: true,
+                validator: _model.priceInputTextControllerValidator
+                    .asValidator(context),
+              ),
+            ),
+            FlutterFlowDropDown<String>(
+              controller: _model.typeDropdownValueController ??=
+                  FormFieldController<String>(null),
+              options: [
+                'Plumbing',
+                'Electrical',
+                'HVAC',
+                'Roofing',
+                'Carpentry',
+                'Flooring',
+                'Concrete & Masonry',
+                'Drywall & Plastering',
+                'Landscaping',
+                'Pest Control',
+                'Handywork/Maintenance'
+              ],
+              onChanged: (val) =>
+                  safeSetState(() => _model.typeDropdownValue = val),
+              width: 352.7,
+              height: 40.0,
+              textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
+                    font: GoogleFonts.inter(
+                      fontWeight:
+                          FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                      fontStyle:
+                          FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                    ),
+                    letterSpacing: 0.0,
+                    fontWeight:
+                        FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                    fontStyle:
+                        FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                  ),
+              hintText: 'Select type of work...',
+              icon: Icon(
+                Icons.keyboard_arrow_down_rounded,
+                color: FlutterFlowTheme.of(context).secondaryText,
+                size: 24.0,
+              ),
+              fillColor: FlutterFlowTheme.of(context).secondaryBackground,
+              elevation: 2.0,
+              borderColor: Colors.transparent,
+              borderWidth: 0.0,
+              borderRadius: 8.0,
+              margin: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
+              hidesUnderline: true,
+              isOverButton: false,
+              isSearchable: false,
+              isMultiSelect: false,
+            ),
+            Container(
+              width: double.infinity,
+              child: TextFormField(
                 controller: _model.detailsInputTextController,
                 focusNode: _model.detailsInputFocusNode,
                 autofocus: false,
@@ -310,11 +461,13 @@ class _NewJobWidgetState extends State<NewJobWidget> {
                       completed: false,
                       user: currentUserReference,
                       created: getCurrentTimestamp,
+                      typeOfWork: _model.typeDropdownValue,
+                      startingPrice: _model.priceInputTextController.text,
                     ));
                 logFirebaseEvent('UpdateTasks_bottom_sheet');
                 Navigator.pop(context);
               },
-              text: 'Add Task',
+              text: 'Post Job Listing',
               icon: Icon(
                 Icons.add,
                 size: 15.0,

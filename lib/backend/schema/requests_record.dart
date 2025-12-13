@@ -55,6 +55,16 @@ class RequestsRecord extends FirestoreRecord {
   bool get declined => _declined ?? false;
   bool hasDeclined() => _declined != null;
 
+  // "req_category" field.
+  String? _reqCategory;
+  String get reqCategory => _reqCategory ?? '';
+  bool hasReqCategory() => _reqCategory != null;
+
+  // "req_price" field.
+  String? _reqPrice;
+  String get reqPrice => _reqPrice ?? '';
+  bool hasReqPrice() => _reqPrice != null;
+
   void _initializeFields() {
     _homeownerRef = snapshotData['homeowner_ref'] as String?;
     _jobRef = snapshotData['job_ref'] as DocumentReference?;
@@ -64,6 +74,8 @@ class RequestsRecord extends FirestoreRecord {
     _reqTitle = snapshotData['req_title'] as String?;
     _reqDesc = snapshotData['req_desc'] as String?;
     _declined = snapshotData['declined'] as bool?;
+    _reqCategory = snapshotData['req_category'] as String?;
+    _reqPrice = snapshotData['req_price'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -109,6 +121,8 @@ Map<String, dynamic> createRequestsRecordData({
   String? reqTitle,
   String? reqDesc,
   bool? declined,
+  String? reqCategory,
+  String? reqPrice,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -120,6 +134,8 @@ Map<String, dynamic> createRequestsRecordData({
       'req_title': reqTitle,
       'req_desc': reqDesc,
       'declined': declined,
+      'req_category': reqCategory,
+      'req_price': reqPrice,
     }.withoutNulls,
   );
 
@@ -138,7 +154,9 @@ class RequestsRecordDocumentEquality implements Equality<RequestsRecord> {
         e1?.accepted == e2?.accepted &&
         e1?.reqTitle == e2?.reqTitle &&
         e1?.reqDesc == e2?.reqDesc &&
-        e1?.declined == e2?.declined;
+        e1?.declined == e2?.declined &&
+        e1?.reqCategory == e2?.reqCategory &&
+        e1?.reqPrice == e2?.reqPrice;
   }
 
   @override
@@ -150,7 +168,9 @@ class RequestsRecordDocumentEquality implements Equality<RequestsRecord> {
         e?.accepted,
         e?.reqTitle,
         e?.reqDesc,
-        e?.declined
+        e?.declined,
+        e?.reqCategory,
+        e?.reqPrice
       ]);
 
   @override

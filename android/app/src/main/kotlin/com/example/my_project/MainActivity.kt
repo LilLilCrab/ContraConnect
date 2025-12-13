@@ -1,4 +1,4 @@
-package com.mycompany.contracal368
+package com.uricsc305.contraconnect
 
 import io.flutter.embedding.android.FlutterActivity
 

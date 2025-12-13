@@ -40,12 +40,24 @@ class JobsRecord extends FirestoreRecord {
   bool get completed => _completed ?? false;
   bool hasCompleted() => _completed != null;
 
+  // "type_of_work" field.
+  String? _typeOfWork;
+  String get typeOfWork => _typeOfWork ?? '';
+  bool hasTypeOfWork() => _typeOfWork != null;
+
+  // "starting_price" field.
+  String? _startingPrice;
+  String get startingPrice => _startingPrice ?? '';
+  bool hasStartingPrice() => _startingPrice != null;
+
   void _initializeFields() {
     _title = snapshotData['title'] as String?;
     _details = snapshotData['details'] as String?;
     _user = snapshotData['user'] as DocumentReference?;
     _created = snapshotData['created'] as DateTime?;
     _completed = snapshotData['completed'] as bool?;
+    _typeOfWork = snapshotData['type_of_work'] as String?;
+    _startingPrice = snapshotData['starting_price'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -87,6 +99,8 @@ Map<String, dynamic> createJobsRecordData({
   DocumentReference? user,
   DateTime? created,
   bool? completed,
+  String? typeOfWork,
+  String? startingPrice,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -95,6 +109,8 @@ Map<String, dynamic> createJobsRecordData({
       'user': user,
       'created': created,
       'completed': completed,
+      'type_of_work': typeOfWork,
+      'starting_price': startingPrice,
     }.withoutNulls,
   );
 
@@ -110,12 +126,21 @@ class JobsRecordDocumentEquality implements Equality<JobsRecord> {
         e1?.details == e2?.details &&
         e1?.user == e2?.user &&
         e1?.created == e2?.created &&
-        e1?.completed == e2?.completed;
+        e1?.completed == e2?.completed &&
+        e1?.typeOfWork == e2?.typeOfWork &&
+        e1?.startingPrice == e2?.startingPrice;
   }
 
   @override
-  int hash(JobsRecord? e) => const ListEquality()
-      .hash([e?.title, e?.details, e?.user, e?.created, e?.completed]);
+  int hash(JobsRecord? e) => const ListEquality().hash([
+        e?.title,
+        e?.details,
+        e?.user,
+        e?.created,
+        e?.completed,
+        e?.typeOfWork,
+        e?.startingPrice
+      ]);
 
   @override
   bool isValidKey(Object? o) => o is JobsRecord;

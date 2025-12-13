@@ -1,6 +1,5 @@
 import '/components/customnavbar_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/index.dart';
 import 'profile_config_widget.dart' show ProfileConfigWidget;
 import 'package:flutter/material.dart';
 
@@ -12,6 +11,8 @@ class ProfileConfigModel extends FlutterFlowModel<ProfileConfigWidget> {
       FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
   String uploadedFileUrl_uploadData2j5 = '';
 
+  // Stores action output result for [Custom Action - verifyUser] action in Button widget.
+  String? verifySuccess;
   // Model for customnavbar component.
   late CustomnavbarModel customnavbarModel;
 

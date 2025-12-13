@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 class CustomnavbarModel extends FlutterFlowModel<CustomnavbarWidget> {
   ///  Local state fields for this component.
 
-  Color jNColor = Color(4292663241);
+  Color jNColor = Color(3013770076);
 
   Color rNColor = Color(3013770076);
 

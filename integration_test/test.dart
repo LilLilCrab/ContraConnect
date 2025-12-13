@@ -12,6 +12,7 @@ import 'package:contra_connect/index.dart';
 import 'package:contra_connect/main.dart';
 import 'package:contra_connect/flutter_flow/flutter_flow_util.dart';
 
+import 'package:provider/provider.dart';
 import 'package:contra_connect/backend/firebase/firebase_config.dart';
 import 'package:contra_connect/auth/firebase_auth/auth_util.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -27,12 +28,18 @@ void main() async {
 
   setUp(() async {
     await authManager.signOut();
+    FFAppState.reset();
+    final appState = FFAppState();
+    await appState.initializePersistedState();
   });
 
   testWidgets('US2 User Login', (WidgetTester tester) async {
     _overrideOnError();
 
-    await tester.pumpWidget(const MyApp());
+    await tester.pumpWidget(ChangeNotifierProvider(
+      create: (context) => FFAppState(),
+      child: const MyApp(),
+    ));
     await GoogleFonts.pendingFonts();
 
     await tester.enterText(find.byKey(const ValueKey('Sign-UpEmail_j05a')),

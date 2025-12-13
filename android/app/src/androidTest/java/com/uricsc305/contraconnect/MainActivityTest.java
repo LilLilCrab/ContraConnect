@@ -1,4 +1,4 @@
-package com.mycompany.contracal368;
+package com.uricsc305.contraconnect;
 
 import androidx.test.rule.ActivityTestRule;
 import dev.flutter.plugins.integration_test.FlutterTestRunner;
