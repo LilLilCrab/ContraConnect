@@ -9,6 +9,7 @@ import '/flutter_flow/upload_data.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
 import 'package:easy_debounce/easy_debounce.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'onboarding_homeowner_model.dart';
@@ -277,6 +278,7 @@ class _OnboardingHomeownerWidgetState extends State<OnboardingHomeownerWidget> {
                             child: Container(
                               width: double.infinity,
                               child: TextFormField(
+                                key: ValueKey('CustomerLastName_hxzy'),
                                 controller:
                                     _model.customerLastNameTextController,
                                 focusNode: _model.customerLastNameFocusNode,
@@ -423,6 +425,7 @@ class _OnboardingHomeownerWidgetState extends State<OnboardingHomeownerWidget> {
                             child: Container(
                               width: double.infinity,
                               child: TextFormField(
+                                key: ValueKey('CustomerFirstName_o0lp'),
                                 controller:
                                     _model.customerFirstNameTextController,
                                 focusNode: _model.customerFirstNameFocusNode,
@@ -566,6 +569,7 @@ class _OnboardingHomeownerWidgetState extends State<OnboardingHomeownerWidget> {
                         Padding(
                           padding: EdgeInsets.all(24.0),
                           child: FFButtonWidget(
+                            key: ValueKey('Button_c7by'),
                             onPressed: () async {
                               logFirebaseEvent(
                                   'ONBOARDING_HOMEOWNER_SET_BIRTHDAY_BTN_ON');
@@ -683,6 +687,7 @@ class _OnboardingHomeownerWidgetState extends State<OnboardingHomeownerWidget> {
                     child: Padding(
                       padding: EdgeInsets.all(50.0),
                       child: FFButtonWidget(
+                        key: ValueKey('Button_pj4l'),
                         onPressed: () async {
                           logFirebaseEvent(
                               'ONBOARDING_HOMEOWNER_SUBMIT_BTN_ON_TAP');
